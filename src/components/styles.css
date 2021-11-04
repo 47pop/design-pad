@@ -1,0 +1,38 @@
+
+h1{
+    padding-left: 40%;
+    width: 400px;
+}
+#componentsContainer{
+    width: 100%;
+}
+.sameLineComponent{
+    display: inline-block;
+}
+#componentsContainer, #padInput,#designBoard {
+    display: inline-block;
+}
+.tableOfPadInput{ 
+    background-color:antiquewhite; 
+    color: black;
+    width: 150px;
+}
+.parent, .child {  
+    display: inline-block;
+    font-size: large;
+    margin: 30px;
+    border-bottom: 10px;
+    border-color: black;
+}
+#designPadTable {
+    text-align: center;
+    width: 500px;
+}
+#designPaTableRowOne,#designPaTableRowTwo{
+    height: 250px;
+}
+#padOne,#padTwo,#padThree,#padFour{
+    border: 1px solid black;
+    border-radius: 3ex;
+    background-color: gray;
+}
