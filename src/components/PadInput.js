@@ -50,55 +50,57 @@ class PadInput extends Component {
         return (
             <div id="padInputContainer" className="sameLineComponent">
                 <table className="tableOfPadInput">
-                    <tr id="rowOne">
-                        <td class="child" id="one" 
-                            // draggable onDrag={this.handleDrag}
-                            draggable onDragStart={this.onDragStart}>
-                                1
-                        </td>
-                        <td class="child" id="two" 
-                            // draggable onDrag={this.handleDrag}
-                            draggable onDragStart={this.onDragStart}>
-                                2
-                        </td>
-                    </tr>
-                    <tr id="rowTwo">
-                        <td class="child" id="three"
-                            // draggable onDrag={this.handleDrag}
-                            draggable onDragStart={this.onDragStart}>
-                                3
-                        </td>
-                        <td class="child" id="four" 
-                            // draggable onDrag={this.handleDrag}
-                            draggable onDragStart={this.onDragStart}>
-                                4
-                        </td>
-                    </tr>
-                    <tr id="rowThree">
-                        <td class="child" id="five" 
-                            // draggable onDrag={this.handleDrag}
-                            draggable onDragStart={this.onDragStart}>
-                            5
-                        </td>
-                        <td class="child" id="six" 
-                            // draggable onDrag={this.handleDrag}
-                            draggable onDragStart={this.onDragStart}
-                            >
-                            6
-                        </td>
-                    </tr>
-                    <tr id="rowFour">
-                        <td class="child" id="seven" 
-                            // draggable onDrag={this.handleDrag}
-                            draggable onDragStart={this.onDragStart}>
-                            7
-                        </td>
-                        <td class="child" id="eight" 
-                            // draggable onDrag={this.handleDrag}
-                            draggable onDragStart={this.onDragStart}>
-                            8
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr id="rowOne">
+                            <td className="child" id="one" 
+                                // draggable onDrag={this.handleDrag}
+                                draggable onDragStart={this.onDragStart}>
+                                    1
+                            </td>
+                            <td className="child" id="two" 
+                                // draggable onDrag={this.handleDrag}
+                                draggable onDragStart={this.onDragStart}>
+                                    2
+                            </td>
+                        </tr>
+                        <tr id="rowTwo">
+                            <td className="child" id="three"
+                                // draggable onDrag={this.handleDrag}
+                                draggable onDragStart={this.onDragStart}>
+                                    3
+                            </td>
+                            <td className="child" id="four" 
+                                // draggable onDrag={this.handleDrag}
+                                draggable onDragStart={this.onDragStart}>
+                                    4
+                            </td>
+                        </tr>
+                        <tr id="rowThree">
+                            <td className="child" id="five" 
+                                // draggable onDrag={this.handleDrag}
+                                draggable onDragStart={this.onDragStart}>
+                                5
+                            </td>
+                            <td className="child" id="six" 
+                                // draggable onDrag={this.handleDrag}
+                                draggable onDragStart={this.onDragStart}
+                                >
+                                6
+                            </td>
+                        </tr>
+                        <tr id="rowFour">
+                            <td className="child" id="seven" 
+                                // draggable onDrag={this.handleDrag}
+                                draggable onDragStart={this.onDragStart}>
+                                7
+                            </td>
+                            <td className="child" id="eight" 
+                                // draggable onDrag={this.handleDrag}
+                                draggable onDragStart={this.onDragStart}>
+                                8
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         )

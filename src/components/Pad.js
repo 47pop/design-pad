@@ -1,12 +1,34 @@
 import React, {Component} from "react"
 import "./styles.css"
 class Pad extends Component {
-    onDragOverHandler=()=>{
-        console.log("in Pad: "+this.props.id)
-        this.props.handleOnDragOver(this.props.id)
+    // onDragOverHandler=()=>{
+    //     console.log("in Pad: "+this.props.id)
+    //     this.props.handleOnDragOver(this.props.id)
+    // }
+    onDragOver=(e)=>{
+        let event = e;
+        event.stopPropagation();
+        event.preventDefault();
+        console.log("dragging");
     }
-    onDropHandler=()=>{
-        
+
+    onDrop=(e)=>{
+        let event = e;
+        event.stopPropagation();
+        event.preventDefault();
+        console.log("dropped");
+        const updatedPad=this.initialState.pads.map((pad)=>{
+            if(pad.id){
+                return Object.assign({}, pad,{
+                    color:"red"//pad.color
+                })
+            }else{
+                return pad
+            }
+        })
+
+        this.setState({pads:updatedPad})
+        console.log(this.pads)
     }
     render () {
         return(
@@ -23,9 +45,12 @@ class Pad extends Component {
                 // </table>
             // </div>
             // <td id={this.props.id} className="designPad" draggable onDragOver={this.onDragOver}>{this.props.name}</td>
-            <div className="pad" 
-                onDragOver={this.onDragOverHandler} 
-                droppable onDrop={this.onDropHandler}>{this.props.name}</div>
+            <div className="pad"
+                // onDrop={this.onDropHandler}
+                // onDrop={this.onDrop}
+                onDragOver={this.onDragOver}
+                onDrop={this.onDrop}
+                ></div>
             // <div></div>
         )
     }

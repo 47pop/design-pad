@@ -10,12 +10,33 @@ class DesignBoard extends Component {
         this.setState({pads: PadList.listOfPads});
         alert(": "+this.initialState.pads.id)
     }
-    isDragging=(e)=>{
-        let event = e;
-        event.stopPropagation();
-        event.preventDefault();
-        
-        console.log("in DesginBoard: ");
+    // onDragOver=(e)=>{
+    //     let event = e;
+    //     event.stopPropagation();
+    //     event.preventDefault();
+    //     console.log("dragging");
+    // }
+
+    // onDrop=(e)=>{
+    //     let event = e;
+    //     event.stopPropagation();
+    //     event.preventDefault();
+    //     console.log("dropped");
+        // const updatedPad=this.initialState.pads.map((pad)=>{
+        //     if(pad.id){
+        //         return Object.assign({}, pad,{
+        //             color:"red"//pad.color
+        //         })
+        //     }else{
+        //         return pad
+        //     }
+    //     })
+
+    //     this.setState({pads:updatedPad})
+    //     console.log(this.pads)
+    // }
+    handleDrop = (column) => {
+        console.log("dropped")
         const updatedPad=this.initialState.pads.map((pad)=>{
             if(pad.id){
                 return Object.assign({}, pad,{
@@ -25,15 +46,7 @@ class DesignBoard extends Component {
                 return pad
             }
         })
-        this.setState({pads:updatedPad})
-        console.log(this.pads)
-    }
-    isDropping=(e)=>{
-        let event = e;
-        event.stopPropagation();
-        event.preventDefault();
-        console.log("dropping");
-    }
+    };
     render() {
         const singlePad=this.initialState.pads.map((pad)=>(
             <Pad
@@ -41,8 +54,12 @@ class DesignBoard extends Component {
                 id={pad.id}
                 color={pad.color}
                 name={pad.name}
-                handdleOnDragOver={this.onDragOver}
-                handdleOnDrop={this.onDrop}
+                // onDragOver={this.onDragOver}
+                // onDrop={this.onDrop}
+                // handdleOnDragOver={this.onDragOver}
+                // handdleOnDrop={this.onDrop}
+                // draggableId={id} 
+                // index={index}
             />
         ))
         return(
@@ -57,22 +74,22 @@ class DesignBoard extends Component {
             // </div>
             <div id="designBoard" className="sameLineComponent">
                 <table id="designPadTable">
-                    <tr id="designPaTableRowOne">
-                        <td id="padOne" className="designPad" draggableId={this.initialState.pads.id}
-                            isDragging={this.onDragOver}
-                            isDropping={this.onDrop}>{singlePad}</td>
-                        <td id="padTwo" className="designPad" 
-                            isDragging={this.onDragOver}
-                            isDropping={this.onDrop}>{singlePad}</td>
-                    </tr>
-                    <tr id="designPaTableRowTwo">
-                        <td id="padThree" className="designPad" 
-                            isDragging={this.onDragOver}
-                            isDropping={this.onDrop}>{singlePad}</td>
-                        <td id="padFour" className="designPad" 
-                            isDragging={this.onDragOver}
-                            isDropping={this.onDrop}>{singlePad}</td>
-                    </tr>
+                    <tbody className="tableBody">
+                        <tr id="designPaTableRowOne">
+                            <td id="padOne" className="designPad">{this.singlePad}</td>
+                            <td id="padTwo" className="designPad"
+                                onDrop={() => this.handleDrop(this.props.id)} 
+                                onDragOver={this.onDragOver}>{singlePad}</td>
+                        </tr>
+                        <tr id="designPaTableRowTwo">
+                            <td id="padThree" className="designPad" 
+                                onDragOver={this.onDragOver}
+                                onDrop={this.onDrop}>{singlePad}</td>
+                            <td id="padFour" className="designPad" 
+                                onDragOver={this.onDragOver}
+                                onDrop={this.onDrop}>{singlePad}</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         )
