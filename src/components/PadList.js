@@ -1,8 +1,9 @@
 window.PadList=(function() {
     const listOfPads=[
         {
-            id:"padOne",
-            color:"",
+            // id:"padOne",
+            id:1,
+            color:"blue",
             name:"Upper Left",
         },
         {
